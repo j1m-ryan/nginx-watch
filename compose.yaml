@@ -11,4 +11,7 @@ services:
         - action: sync+restart
           path: ./nginx/nginx.conf
           target: /etc/nginx/nginx.conf
+        - action: sync+restart
+          path: ./nginx/njs
+          target: /etc/nginx/njs
 

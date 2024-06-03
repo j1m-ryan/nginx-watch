@@ -10,10 +10,26 @@ Docker Compose watch for NGINX
 - [Docker Compose](https://docs.docker.com/compose/)
 - [Just](https://github.com/casey/just)
 
-## Usage
+## Setup 
 
-Run `just watch` in one terminal and `just logs` in another. Upon making a change to `nginx.conf`, or to files in the `conf.d` directory, NGINX will restart. Docker Compose `watch` does not handle logs, so the `just logs` command will restart each time compose restarts.
+- Run `just watch` in one terminal
+- Run `just logs` in another. 
 
-## Why `just logs` is needed
+Upon making a change to `nginx.conf`, or to files in the `conf.d` directory, NGINX will restart. Docker Compose `watch` does not handle logs, so the `just logs` command will restart each time compose restarts.
 
-Initially the logs will show up in the `just watch` command (it's `docker compose up --watch --build`), however after the first reload, all that you will see in this terminal is info relating to docker compose's `watch` feature, i.e what service was restarted or synced. The `just logs` command will relaunch `docker compose logs -f` every time it exits. Unfortunately This makes it difficult to close the just logs script. I close it by closing my terminal 😎.
+
+## Usage 
+
+1. add `cafe.example.com` to your `/etc/hosts` as follows
+
+```
+127.0.0.1       cafe.example.com
+```
+
+2. curl `cafe.example.com`
+
+3. make a change to the response in `nginx/conf.d/default.conf`
+
+4. curl `cafe.example.com` again and notice the change
+
+
