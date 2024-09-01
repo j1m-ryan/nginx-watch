@@ -8,14 +8,13 @@ Docker Compose watch for NGINX
 ## Requirements
 
 - [Docker Compose](https://docs.docker.com/compose/)
-- [Just](https://github.com/casey/just)
 
 ## Setup 
 
-- Run `just watch` in one terminal
-- Run `just logs` in another. 
+- Run `make watch` in one terminal
+- Run `make logs` in another. 
 
-Upon making a change to `nginx.conf`, or to files in the `conf.d` directory, NGINX will restart. Docker Compose `watch` does not handle logs, so the `just logs` command will restart each time compose restarts.
+Upon making a change to `nginx.conf`, or to files in the `conf.d` directory, NGINX will restart. Docker Compose `watch` does not handle logs, so the `make logs` command will restart each time compose restarts.
 
 
 ## Usage 
